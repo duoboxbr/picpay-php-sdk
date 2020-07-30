@@ -21,25 +21,30 @@ class Payment implements \JsonSerializable
     /** @var Buyer $buyer */
     private $buyer;
 
+    /** @var string $expiresAt */
+    private $expiresAt;
+
     /** @var string $returnUrl */
     private $returnUrl;
-    
+
 
     /**
      * Payment constructor.
      *
-     * @param string $referenceId;
-     * @param string $callbackUrl;
-     * @param double $value;
-     * @param Buyer $buyer;
-     * @param string $returnUrl;
+     * @param string $referenceId ;
+     * @param string $callbackUrl ;
+     * @param double $value ;
+     * @param Buyer $buyer ;
+     * @param null $expiresAt ;
+     * @param string $returnUrl ;
      */
-    public function __construct($referenceId, $callbackUrl, $value, $buyer, $returnUrl = '')
+    public function __construct($referenceId, $callbackUrl, $value, $buyer, $expiresAt = null, $returnUrl = '')
     {
         $this->referenceId = $referenceId;
         $this->callbackUrl = $callbackUrl;
         $this->value = $value;
         $this->buyer = $buyer;
+        $this->expiresAt = $expiresAt;
         $this->returnUrl = $returnUrl;
     }
 
